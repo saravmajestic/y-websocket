@@ -6,7 +6,9 @@
 const WebSocket = require("ws");
 const http = require("http");
 const port = process.env.PORT || 1234;
-const wss = new WebSocket.Server({ port: 3001 });
+const wss = new WebSocket.Server({ port: 3001 }, () => {
+  console.log(`Listening on PORT ${WS_PORT} for websockets`);
+});
 const setupWSConnection = require("./utils.js").setupWSConnection;
 
 const host = process.env.HOST || "localhost";
